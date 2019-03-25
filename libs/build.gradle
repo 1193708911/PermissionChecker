@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+//task makeJar(type: Copy) {
+//    //删除旧的jar包
+//    delete 'build/libs/utils.jar'
+//    //原地址
+//    from('build/intermediates/bundles/release/')
+//    //导出jar包的地址
+//    into('build/libs/')
+//    //包含的jar包
+//    include('classes.jar')
+//    //重命名jar包为mysdk
+//    rename ('classes.jar', 'utils.jar')
+//}
+//makeJar.dependsOn(build)
+
+/*task makeJar(type: Copy) {
+    //删除旧的jar包
+    delete 'build/libs/utils.aar'
+    //原地址
+    from('build/outputs/aar/')
+    //导出jar包的地址
+    into('build/aars/')
+    //包含的jar包
+    include('libs-release.aar')
+    //重命名jar包为mysdk
+    rename ('libs-release.aar', 'utils.aar')
+}
+makeJar.dependsOn(build)*/
